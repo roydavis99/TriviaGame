@@ -1,0 +1,22 @@
+.answer{
+    margin: 20px 0px;
+    border-style: solid;
+    border-color: blue;
+    border-width: 2px;
+}
+
+.selected{
+    background-color: yellow;
+}
+
+.correct{
+    background-color: lightgreen;
+}
+
+.wrong{
+    background-color: red;
+}
+
+.hidden{
+    visibility: hidden;
+}
