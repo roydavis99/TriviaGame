@@ -1,69 +1,75 @@
 var questions = [];
-var topics = ["all","videogames"];
-var currentQuestion = 0
+//var topics = ["all", "VideoGames", "BoardGames", "History"];
+var  topics = [0,15, 16, 23];
+var difficulties = ["easy","medium","hard"];
+var currentQuestion = 0;
+var divs = { 
+    questionDiv: "#question",
+    answerDivs: ["#answer1","#answer2","#answer3","#answer4"]
+} ;
 
-function LoadQuestions(topic){
-    console.log("here");
-    //Asyncrinis Javascritp xml
+function LoadQuestions(topic, difficulty){
+    var urlQuery = "https://opentdb.com/api.php?amount=10&category=" + topic + "&difficulty=" + difficulty + "&type=multiple";
     $.ajax({
-        url: "https://opentdb.com/api.php?amount=50&category=15&difficulty=easy&type=multiple",
+        url: urlQuery,
         method: "GET"
     }).then(function(response){
         questions = response.results;
-        //console.log(questions);
-        setState(1);
-        //LoadQuestionDisplay(questions[4]);
+        //setState(states.Ready);
+        setState(states.Loading);
     });
-}
-LoadQuestions("t"); // load API right away
+}// load API right away
 
 function LoadQuestionDisplay(quest){
     console.log(quest);
     $("#question").text(quest.question);
     LoadAnswersRandom(quest);
-    setState(2);// currentState = 2;
+    //setState(states.Ready);// currentState = 2;
 }
 
 function LoadAnswersRandom(question){
-    let rand = Math.floor(Math.random() * 4 ) +1;
-    $("#answer" + rand).text(question.correct_answer);
-    $("#answer" + rand).attr("value", true);
+    let rand = Math.floor(Math.random() * 4 );
+    console.log(rand);
+    $(divs.answerDivs[rand]).text(question.correct_answer);
+    $(divs.answerDivs[rand]).attr("value", true);
 
     let j = 0;
-    for(let i = 1; i<=4; i++){
-        if(i !== rand){
-            $("#answer" + i).text(question.incorrect_answers[j]);
-            $("#answer" + i).attr("value", false); 
+    divs.answerDivs.forEach(element => {
+        if(element !== divs.answerDivs[rand]){
+            $(element).text(question.incorrect_answers[j]);
+            $(element).attr("value", false); 
             j++;
         }
-    }
+    });
 
 }
 
 function DisplayCorrectAnswer(){
-    for(let i = 1; i<=4; i++){
-        console.log(i +" is: " + $("#answer" + i).attr("value"))
-        if($("#answer" + i).attr("value")=== "true"){
-            console.log(i +" is: " + $("#answer" + i).attr("value"))
-            $("#answer" + i).addClass("correct");
+    
+    divs.answerDivs.forEach(element => {
+        //console.log(i +" is: " + $(element).attr("value"))
+        if($(element).attr("value")=== "true"){
+            //console.log(i +" is: " + $(element).attr("value"))
+            $(element).addClass("correct");
         }
-        else if($("#answer" +i).hasClass("selected")){
-            console.log($("#answer" +i).hasClass("selected"));
-            $("#answer" + i).addClass("wrong");
+        else if($(element).hasClass("selected")){
+            //console.log($(element).hasClass("selected"));
+            $(element).addClass("wrong");
         }
-    }
+    });
 }
 
 function ResetAnswerState(){
-    for(let i = 1; i<=4; i++){
-        if($("#answer" +i).hasClass("selected")){
-            $("#answer" +i).removeClass("selected");
+    divs.answerDivs.forEach(element => {
+        if($(element).hasClass("selected")){
+            $(element).removeClass("selected");
         }
-        if($("#answer" +i).hasClass("wrong")){
-            $("#answer" +i).removeClass("wrong");
+        if($(element).hasClass("wrong")){
+            $(element).removeClass("wrong");
         }
-        if($("#answer" +i).hasClass("correct")){
-            $("#answer" +i).removeClass("correct");
+        if($(element).hasClass("correct")){
+            $(element).removeClass("correct");
         }
-    }
+        $(element).text("");
+    });
 }
