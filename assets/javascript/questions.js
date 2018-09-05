@@ -21,7 +21,7 @@ function LoadQuestions(topic, difficulty){
 }// load API right away
 
 function LoadQuestionDisplay(quest){
-    console.log(quest);
+    //console.log(quest);
     $("#question").text(quest.question);
     LoadAnswersRandom(quest);
     //setState(states.Ready);// currentState = 2;
@@ -29,7 +29,7 @@ function LoadQuestionDisplay(quest){
 
 function LoadAnswersRandom(question){
     let rand = Math.floor(Math.random() * 4 );
-    console.log(rand);
+    //console.log(rand);
     $(divs.answerDivs[rand]).text(question.correct_answer);
     $(divs.answerDivs[rand]).attr("value", true);
 

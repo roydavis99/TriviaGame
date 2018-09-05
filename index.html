@@ -21,27 +21,48 @@
 </head>
 
 <body>
-    <div class="container">
+    <div id="startScreen" class="container mt-5">
+        <div class="jumbotron text-center">
+            <h2>Let's Play Trivia!!!!</h2>
+            <button id="start" class="btn btn-success">Play game</button>
+        </div>
+    </div>
+    <div id="gameScreen" class="container mt-5 collapse">
         <div class="jumbotron mt-5 text-center">
             <h1 id="question">This is it</h1>
         </div>
 
         <div id="answer-container" class="container text-center">
-            <div class="row">
-                <div class="col-lg-6">
-                    <h3 id="answer1" class="answer">Answer1</h3>
+            <div class="jumbotron">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <h3 id="answer1" class="answer">Answer1</h3>
+                    </div>
+                    <div class="col-lg-6">
+                        <h3 id="answer2" class="answer">Answer2</h3>
+                    </div>
                 </div>
-                <div class="col-lg-6">
-                    <h3 id="answer2" class="answer">Answer2</h3>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <h3 id="answer3" class="answer">Answer3</h3>
+                    </div>
+                    <div class="col-lg-6">
+                        <h3 id="answer4" class="answer">Answer4</h3>
+                    </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-lg-6">
-                    <h3 id="answer3" class="answer">Answer3</h3>
-                </div>
-                <div class="col-lg-6">
-                    <h3 id="answer4" class="answer">Answer4</h3>
-                </div>
+        </div>
+    </div>
+
+    <div id="endScreen" class="container mt-5 collapse jumbotron">
+        <div class="row">
+            <div class="col-lg-6 text-center">
+                <h1>Wins</h1>
+                <h2 id="winsCount"></h2>
+            </div>
+            <div class="col-lg-6 text-center">
+                <h1>Losses</h1>
+                <h2 id="lossCount"></h2>
             </div>
         </div>
     </div>
