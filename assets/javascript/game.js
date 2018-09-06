@@ -38,8 +38,26 @@ $(document).ready(function () {
 
     });
 
+    $(".cat").click(function(){
+        $(".cat").removeClass("selected");
+        $(this).addClass("selected");
+
+        cat = $(this).attr("data-cat");
+    });
+
+    $(".dif").click(function(){
+        $(".dif").removeClass("selected");
+        $(this).addClass("selected");
+
+        dif = $(this).attr("data-dif");
+    });
+
     $("#start").click(function () {
         setState(states.GameScreen);
+    });
+
+    $("#main-menu").click(function(){
+        setState(states.StartScreen);
     });
 });
 
@@ -97,13 +115,13 @@ function checkState() {
                 setTimeout(function () {
                     currentQuestion++;
                     setState(states.Loading);
-                }, 3000);
+                }, 1500);
             }, 1000);
 
             break;
         case states.APILoading:
             console.log("current state: APILoading");
-            LoadQuestions(topics[2], difficulties[0]);
+            LoadQuestions(cat, difficulties[dif]);
 
             break;
         case states.Win: //win
@@ -146,6 +164,7 @@ function StopGuessingTimer(){
 }
 
 function SetEndScreen() {
+    $("body").css("background-image","url(../assets/images/TriviaBK.jpg)");
     //display score here
     $("#gameScreen").addClass("collapse");
     $("#endScreen").removeClass("collapse");
@@ -155,6 +174,7 @@ function SetEndScreen() {
 }
 
 function SetStartScreen() {
+    $("body").css("background-image","url(../assets/images/TriviaBK.jpg)");
     if (!$("#gameScreen").hasClass("collapse")) {
         $("#gameScreen").addClass("collapse");
     }
@@ -164,9 +184,12 @@ function SetStartScreen() {
     if ($("#startScreen").hasClass("collapse")) {
         $("#startScreen").removeClass("collapse");
     }
+    Reset();
 }
 
 function SetGameScreen() {
+    console.log("SetGameState: " + cat);
+    $("body").css("background-image","url(../assets/images/" + cat + ".jpg)");
     setState(states.APILoading);
     if ($("#gameScreen").hasClass("collapse")) {
         $("#gameScreen").removeClass("collapse");
@@ -178,4 +201,10 @@ function SetGameScreen() {
         $("#startScreen").addClass("collapse");
     }
 
+}
+
+function Reset(){
+    wins = 0;
+    losses = 0;
+    currentQuestion = 0;
 }

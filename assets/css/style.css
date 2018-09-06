@@ -20,3 +20,60 @@
 .hidden{
     visibility: hidden;
 }
+
+.center{
+    margin: 0px auto;
+}
+
+.list-group-item{
+    font-size: 24px;
+}
+
+.title{
+    font-family: 'Slackey', cursive;
+    font-size: 80px;
+    background-color: white;
+    border-style: solid;
+    border-color: black;
+    border-width: 1px;
+    padding: 10px 0px;
+    margin-bottom: 35px;
+}
+
+.play{
+    margin: 25% auto;
+    /* color: white; */
+    padding: 5px;
+    background-color: rgb(51, 235, 51);
+    border-style: solid;
+    border-color: black;
+    border-width: 1px;
+    border-radius: 25px;
+}
+
+.list-group,
+.list-group-item{
+    border-color: black;
+}
+
+body{
+    background-image: url("../images/TriviaBK.jpg");
+    height: 100%; 
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.sub-title{
+    color: white;
+}
+
+.result{
+    border-style: solid;
+    border-color: black;
+    border-width: 1px;
+    padding-top: 5%;
+
+}

@@ -7,6 +7,8 @@ var divs = {
     questionDiv: "#question",
     answerDivs: ["#answer1","#answer2","#answer3","#answer4"]
 } ;
+var dif = 1;
+var cat = 16;
 
 function LoadQuestions(topic, difficulty){
     var urlQuery = "https://opentdb.com/api.php?amount=10&category=" + topic + "&difficulty=" + difficulty + "&type=multiple";
