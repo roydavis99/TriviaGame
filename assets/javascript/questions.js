@@ -24,7 +24,7 @@ function LoadQuestions(topic, difficulty){
 
 function LoadQuestionDisplay(quest){
     //console.log(quest);
-    $("#question").text(quest.question);
+    $("#question").text(cleanStringHTML(quest.question));
     LoadAnswersRandom(quest);
     //setState(states.Ready);// currentState = 2;
 }
@@ -32,13 +32,13 @@ function LoadQuestionDisplay(quest){
 function LoadAnswersRandom(question){
     let rand = Math.floor(Math.random() * 4 );
     //console.log(rand);
-    $(divs.answerDivs[rand]).text(question.correct_answer);
+    $(divs.answerDivs[rand]).text(cleanStringHTML(question.correct_answer));
     $(divs.answerDivs[rand]).attr("value", true);
 
     let j = 0;
     divs.answerDivs.forEach(element => {
         if(element !== divs.answerDivs[rand]){
-            $(element).text(question.incorrect_answers[j]);
+            $(element).text(cleanStringHTML(question.incorrect_answers[j]));
             $(element).attr("value", false); 
             j++;
         }
@@ -74,4 +74,23 @@ function ResetAnswerState(){
         }
         $(element).text("");
     });
+}
+
+function cleanStringArray(arrayToClean){
+    $.each(arrayToClean, function (key, value) {
+        arrayToClean[key] = cleanStringHTML(value);;
+    });
+    return arrayToClean;
+}
+
+function cleanStringHTML(word) {
+    let returnWord = word.toString();
+    returnWord = returnWord.replace(/&#039;/g, "\'");
+    returnWord = returnWord.replace(/&quot;/g, "\"");
+    returnWord = returnWord.replace(/&apos;/g, "\'");
+    returnWord = returnWord.replace(/&amp;/g, "&");
+    returnWord = returnWord.replace(/&lt;/g, "<");
+    returnWord = returnWord.replace(/&gt;/g, ">");
+    returnWord = returnWord.replace(/&nbsp;/g, " ");
+    return returnWord;
 }

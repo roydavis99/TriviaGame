@@ -152,7 +152,7 @@ function GuessingTimer() {
         if (tim === gameTimer) {
             loss();
         }
-    }, 5000);
+    }, 15000);
     gameTimer = tim;
     console.log(gameTimer);
 }
