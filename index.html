@@ -24,34 +24,34 @@
 <body>
     <div id="startScreen" class="container mt-5">
         <!-- <div class="jumbotron text-center"> -->
-            <h1 class="title text-center">Let's Play Trivia!!!!</h2>
-        <!-- </div> -->
+        <h1 class="title text-center">Let's Play Trivia!!!!</h2>
+            <!-- </div> -->
 
-        <div class="row mt-5">
-            <div class="col-sm-4">
-                <h5 class="sub-title">Select Category:</h5>
-                <ul class="list-group">
-                    <li class="list-group-item text-center cat" data-cat="15">Video Games</li>
-                    <li class="list-group-item text-center cat selected" data-cat="16">Board Games</li>
-                    <li class="list-group-item text-center cat" data-cat="23">History</li>
-                </ul>
-            </div>
-            <div class="col-sm-4 text-center">
-                <div id="start">
-                    <h3 class="play">PLAY GAME</h3>
+            <div class="row mt-5">
+                <div class="col-sm-4">
+                    <h5 class="sub-title">Select Category:</h5>
+                    <ul class="list-group">
+                        <li class="list-group-item text-center cat" data-cat="15">Video Games</li>
+                        <li class="list-group-item text-center cat selected" data-cat="16">Board Games</li>
+                        <li class="list-group-item text-center cat" data-cat="23">History</li>
+                    </ul>
+                </div>
+                <div class="col-sm-4 text-center">
+                    <div id="start">
+                        <h3 class="play">PLAY GAME</h3>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <h5 class="sub-title">Select Difficulty:</h5>
+                    <ul id="difficulty" class="list-group">
+                        <li class="list-group-item text-center dif selected" data-dif="0">Easy</li>
+                        <li class="list-group-item text-center dif" data-dif="1">Medium</li>
+                        <li class="list-group-item text-center dif" data-dif="2">Hard</li>
+                    </ul>
                 </div>
             </div>
-            <div class="col-sm-4">
-                <h5 class="sub-title">Select Difficulty:</h5>
-                <ul id="difficulty" class="list-group">
-                    <li class="list-group-item text-center dif selected" data-dif="0">Easy</li>
-                    <li class="list-group-item text-center dif" data-dif="1">Medium</li>
-                    <li class="list-group-item text-center dif" data-dif="2">Hard</li>
-                </ul>
-            </div>
-        </div>
-        <br>
-        <!-- <button id="start" class="btn btn-success center">Play game</button> -->
+            <br>
+            <!-- <button id="start" class="btn btn-success center">Play game</button> -->
     </div>
     <div id="gameScreen" class="container mt-5 collapse">
         <div class="jumbotron mt-5 text-center">
@@ -86,12 +86,12 @@
                 <h1 class="font-weight-bold">Correct</h1>
                 <h2 id="winsCount"></h2>
             </div>
-            
+
             <div class="col-sm-4 text-center">
-                    <div id="main-menu">
-                        <h3 class="play">MAIN MENU</h3>
-                    </div>
+                <div id="main-menu">
+                    <h3 class="play">MAIN MENU</h3>
                 </div>
+            </div>
             <div class="col-sm-4 text-center result">
                 <h1 class="font-weight-bold">Incorrect</h1>
                 <h2 id="lossCount"></h2>

@@ -38,14 +38,14 @@ $(document).ready(function () {
 
     });
 
-    $(".cat").click(function(){
+    $(".cat").click(function () {
         $(".cat").removeClass("selected");
         $(this).addClass("selected");
 
         cat = $(this).attr("data-cat");
     });
 
-    $(".dif").click(function(){
+    $(".dif").click(function () {
         $(".dif").removeClass("selected");
         $(this).addClass("selected");
 
@@ -56,7 +56,7 @@ $(document).ready(function () {
         setState(states.GameScreen);
     });
 
-    $("#main-menu").click(function(){
+    $("#main-menu").click(function () {
         setState(states.StartScreen);
     });
 });
@@ -157,14 +157,14 @@ function GuessingTimer() {
     console.log(gameTimer);
 }
 
-function StopGuessingTimer(){
+function StopGuessingTimer() {
     console.log(gameTimer);
     clearTimeout(gameTimer);
     gameTimer = 0;
 }
 
 function SetEndScreen() {
-    $("body").css("background-image","url(../assets/images/TriviaBK.jpg)");
+    $("body").css("background-image", "url(../assets/images/TriviaBK.jpg)");
     //display score here
     $("#gameScreen").addClass("collapse");
     $("#endScreen").removeClass("collapse");
@@ -174,7 +174,7 @@ function SetEndScreen() {
 }
 
 function SetStartScreen() {
-    $("body").css("background-image","url(../assets/images/TriviaBK.jpg)");
+    $("body").css("background-image", "url(../assets/images/TriviaBK.jpg)");
     if (!$("#gameScreen").hasClass("collapse")) {
         $("#gameScreen").addClass("collapse");
     }
@@ -189,7 +189,7 @@ function SetStartScreen() {
 
 function SetGameScreen() {
     console.log("SetGameState: " + cat);
-    $("body").css("background-image","url(../assets/images/" + cat + ".jpg)");
+    $("body").css("background-image", "url(../assets/images/" + cat + ".jpg)");
     setState(states.APILoading);
     if ($("#gameScreen").hasClass("collapse")) {
         $("#gameScreen").removeClass("collapse");
@@ -203,7 +203,7 @@ function SetGameScreen() {
 
 }
 
-function Reset(){
+function Reset() {
     wins = 0;
     losses = 0;
     currentQuestion = 0;
