@@ -164,7 +164,7 @@ function StopGuessingTimer() {
 }
 
 function SetEndScreen() {
-    $("body").css("background-image", "url(../assets/images/TriviaBK.jpg)");
+    $("body").css("background-image", "url(./assets/images/TriviaBK.jpg)");
     //display score here
     $("#gameScreen").addClass("collapse");
     $("#endScreen").removeClass("collapse");
@@ -174,7 +174,7 @@ function SetEndScreen() {
 }
 
 function SetStartScreen() {
-    $("body").css("background-image", "url(../assets/images/TriviaBK.jpg)");
+    $("body").css("background-image", "url(./assets/images/TriviaBK.jpg)");
     if (!$("#gameScreen").hasClass("collapse")) {
         $("#gameScreen").addClass("collapse");
     }
@@ -189,7 +189,7 @@ function SetStartScreen() {
 
 function SetGameScreen() {
     console.log("SetGameState: " + cat);
-    $("body").css("background-image", "url(../assets/images/" + cat + ".jpg)");
+    $("body").css("background-image", "url(./assets/images/" + cat + ".jpg)");
     setState(states.APILoading);
     if ($("#gameScreen").hasClass("collapse")) {
         $("#gameScreen").removeClass("collapse");
